@@ -15,7 +15,6 @@ const reducer = (state = initialState, action) => {
             }
         case ADD_MOVIE:
             state.movies.push(action.payload)
-            console.log(state.movies)
             return {
                 ...state,
                 movies: state.movies 
