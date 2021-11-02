@@ -7,8 +7,8 @@ const FavoriteMovieList = (props) => {
     const { favorites } = props;
 
     const handleRemoveFavorites = e => {
-        console.log(e.target.name)
-        // props.dispatch(removeFavorites(movie.id))
+        const { id } = e.target;
+        props.dispatch(removeFavorites(id))
     };
     
     return (<div className="col-xs savedContainer">
@@ -18,7 +18,7 @@ const FavoriteMovieList = (props) => {
                 return <div key={movie.id}>
                     <Link className="btn btn-light savedButton" to={`/movies/${movie.id}`}>
                         {movie.title}
-                        <span><span onClick={handleRemoveFavorites} name={movie.id} className="material-icons">remove_circle</span></span>
+                        <span><span onClick={handleRemoveFavorites} id={movie.id} className="material-icons">remove_circle</span></span>
                     </Link> 
                 </div>
             })
