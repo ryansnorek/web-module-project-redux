@@ -14,9 +14,11 @@ const reducer = (state = initialState, action) => {
                 movies: state.movies.filter(item => (parseInt(action.payload) !== item.id))
             }
         case ADD_MOVIE:
+            state.movies.push(action.payload)
+            console.log(state.movies)
             return {
                 ...state,
-                movies: state.movies.push(action.payload)
+                movies: state.movies 
             }
         default:
             return state;
