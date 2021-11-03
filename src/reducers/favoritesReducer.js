@@ -15,12 +15,9 @@ const reducer = (state = initialFavs, action) => {
                 displayFavorites: !state.displayFavorites
             }
         case ADD_FAVORITES:
-            console.log(state.favorites)
-            state.favorites.push(action.payload)
-            console.log(state.favorites)
             return {
                 ...state,
-                favorites: state.favorites
+                favorites: [...state.favorites, action.payload]
             }
         case REMOVE_FAVORITES:
             return {
