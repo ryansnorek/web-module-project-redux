@@ -2,7 +2,7 @@ import React from 'react';
 import { useParams, useHistory } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { deleteMovie } from '../actions/movieActions';
-import { addFavorites, removeFavorites } from '../actions/favoritesActions';
+import { addFavorites } from '../actions/favoritesActions';
 
 const Movie = (props) => {
     const { id } = useParams();
@@ -14,10 +14,8 @@ const Movie = (props) => {
         push('/movies');
     };
     const handleAddFavorites = () => {
-        // console.log(props.favorites)
         props.dispatch(addFavorites(movie));
         push('/movies');
-        // console.log(props.favorites)
     };
 
     const movie = movies.find(movie => movie.id === Number(id));
